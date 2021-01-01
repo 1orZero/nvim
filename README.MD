@@ -63,3 +63,14 @@ FILE="${FILE//\\\\/\/}"
 
 `Bat` must be installed in bash(WSL)
 
+> Use the second command in Powershell if the first line doesn't do the trick
+
+```console
+lxrun /setdefaultuser root
+
+ubuntu.exe config --default-user root
+```
+
+```console
+sudo apt-get install bat
+```
