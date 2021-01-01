@@ -62,84 +62,40 @@ let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red
 
 " NERDTREE GIT PLUGIN
 let g:nerdtreegitstatusindicatormapcustom = {
-      \ 'MODIFIED'  :'✹',
-      \ 'STAGED'    :'✚',
-      \ 'UNTRACKED' :'✭',
-      \ 'RENAMED'   :'➜',
-      \ 'UNMERGED'  :'═',
-      \ 'DELETED'   :'✖',
-      \ 'DIRTY'     :'✗',
-      \ 'IGNORED'   :'☒',
-      \ 'CLEAN'     :'✔︎',
-      \ 'UNKNOWN'   :'?',
-      \ }
+            \ 'MODIFIED'  :'✹',
+            \ 'STAGED'    :'✚',
+            \ 'UNTRACKED' :'✭',
+            \ 'RENAMED'   :'➜',
+            \ 'UNMERGED'  :'═',
+            \ 'DELETED'   :'✖',
+            \ 'DIRTY'     :'✗',
+            \ 'IGNORED'   :'☒',
+            \ 'CLEAN'     :'✔︎',
+            \ 'UNKNOWN'   :'?',
+            \ }
 
 " Fuzzy Seach
 nnoremap <C-p> :FZF<CR>
 " nnoremap <Leader>f :Rg<CR>
-nnoremap <C-F> :Ag<CR>
+nnoremap <C-F> :Rg<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 " fzf settings
 " This is the default extra key bindings
 let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit' }
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
 
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
 
-" Customize fzf colors to match your color scheme
-" function! s:update_fzf_colors()
-"     let rules =
-"                 \ { 'fg':      [['Normal',       'fg']],
-"                 \ 'bg':      [['Normal',       'bg']],
-"                 \ 'hl':      [['Comment',      'fg']],
-"                 \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
-"                 \ 'bg+':     [['CursorColumn', 'bg']],
-"                 \ 'hl+':     [['Statement',    'fg']],
-"                 \ 'info':    [['PreProc',      'fg']],
-"                 \ 'prompt':  [['Conditional',  'fg']],
-"                 \ 'pointer': [['Exception',    'fg']],
-"                 \ 'marker':  [['Keyword',      'fg']],
-"                 \ 'spinner': [['Label',        'fg']],
-"                 \ 'header':  [['Comment',      'fg']] }
-"     let cols = []
-"     for [name, pairs] in items(rules)
-"         for pair in pairs
-"             let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
-"             if !empty(name) && code > 0
-"                 call add(cols, name.':'.code)
-"                 break
-"             endif
-"         endfor
-"     endfor
-"     let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
-"     let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
-"                 \ empty(cols) ? '' : (' --color='.join(cols, ','))
-" endfunction
-
-" augroup _fzf
-"     autocmd!
-"     autocmd ColorScheme * call <sid>update_fzf_colors()
-" augroup END
-
-
-
-" Enable Bat in preview window - fzf (Required install bat in Bash)
 command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-
-
-
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
 " Vim-AutoFormat
 noremap <F3> :Autoformat<CR>
 au BufWrite * :Autoformat
-
-
-
 
 "-------------------------------------------------------------------------------
 " Plugin Config End
