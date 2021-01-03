@@ -31,7 +31,7 @@ pip install pyvim
 ## Coc.nvim Plugin
 
 ```CLI
-CocInstall coc-tsserver coc-css coc-diagnostic coc-html coc-jedi coc-markdownlint
+CocInstall coc-tsserver coc-css coc-diagnostic coc-html coc-jedi coc-markdownlint coc-explorer coc-bookmark
 ```
 
 ## Airline Theme

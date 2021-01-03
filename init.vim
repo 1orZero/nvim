@@ -1,10 +1,11 @@
+
+
+" :call writefile(["foo"], "expand('~/nvim_bookmark.md')", "a")
+au FileChangedShell * echo "Warning: File changed on disk"
 "-------------------------------------------------------------------------------
-" Python Path
+" !!!!!!!!!!!!!!!!!!    CHANGE THIS FOR your COMPUTER !!!!!!  Python Path
 let g:python3_host_prog = 'C:\Users\KaMeng\AppData\Local\Programs\Python\Python38-32\python.EXE'
-" vim-polyglot
-" let g:polyglot_disabled = ['python'] " As using semshi as Python Highlight
 "-------------------------------------------------------------------------------
-" End
 
 " Plugin Section Start
 "-------------------------------------------------------------------------------
@@ -14,17 +15,9 @@ Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"-------------------------------------------------------------------------------
-" NERDTree
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
 
-" Add icons / Nerd Font Required
-Plug 'ryanoasis/vim-devicons'
 
 "-------------------------------------------------------------------------------
 " Fuzzy Seach
@@ -65,22 +58,34 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug '1orZero/vim-python-virtualenv'
 "-------------------------------------------------------------------------------
 " HTML/CSS/JAVASCRIPT Live Server
-Plug 'turbio/bracey.vim'
-"-------------------------------------------------------------------------------
+Plug 'turbio/bracey.vim'  " Use :Bracey to start
+" -------------------------------------------------------------------------------
 call plug#end()
 "-------------------------------------------------------------------------------
-" Plugin Section End
+" plugin section end
 
 
-" Basic Config
+" basic config
 "-------------------------------------------------------------------------------
-" Key Mapping Leader Key
+" key mapping leader key
 let g:mapleader = ','
-nnoremap <Leader>v :e $MYVIMRC<cr>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>n :nohl<CR>
-nnoremap <Leader>r :reg<CR>
+nnoremap <leader>v :e $myvimrc<cr>
+nnoremap <leader>sv :source $myvimrc<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>n :nohl<cr>
+nnoremap <leader>r leader>r :reg<cr>
+
+" COC MAPPING
+noremap <silent> <C-b> :CocCommand explorer<CR>
+noremap <silent> <Leader>pv :CocCommand explorer --reveal<CR>
+nnoremap <silent> <Leader>b :CocCommand explorer --sources=buffer+,file-<CR>
+nnoremap <silent> <Leader>B :CocList bookmark<CR>
+nnoremap <Leader>m :CocCommand bookmark.
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+" Open File Explorer
+nnoremap <leader>x :!start .<cr>
 
 set background=dark
 
@@ -116,8 +121,8 @@ set mouse=a                 " Mouse Enable
 set ruler                   " Show the current position of the cursor
 set cursorline              " Highline the current position of the cursor
 set clipboard+=unnamed      " use the clipboards of vim and win
-set splitright              " Set Split to right by default
 set splitbelow
+set splitright              " Set Split to right by default
 
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
@@ -131,6 +136,8 @@ colorscheme vim-monokai-tasty
 let g:airline#extensions#whitespace#enabled = 0
 
 runtime plugin_config.vim
+" runtime defx.vim
+
 
 "------------------------------------------------------------------------------- Mapping Leader Key
 " Basic Config
