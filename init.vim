@@ -1,53 +1,43 @@
 
+" Required Setting
+"-------------------------------------------------------------------------------
+" Home
+" let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38-32\python.EXE'
+" Office
+let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
+"-------------------------------------------------------------------------------
 
-" :call writefile(["foo"], "expand('~/nvim_bookmark.md')", "a")
-au FileChangedShell * echo "Warning: File changed on disk"
-"-------------------------------------------------------------------------------
-" !!!!!!!!!!!!!!!!!!    CHANGE THIS FOR your COMPUTER !!!!!!  Python Path
-let g:python3_host_prog = 'C:\Users\KaMeng\AppData\Local\Programs\Python\Python38-32\python.EXE'
-"-------------------------------------------------------------------------------
-
-" Plugin Section Start
-"-------------------------------------------------------------------------------
+" PLUGIN SECTION START
+" -------------------------------------------------------------------------------
 call plug#begin()
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'dracula/vim', { 'name': 'dracula' }
+"-------------------------------------------------------------------------------
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-
-
-
 
 "-------------------------------------------------------------------------------
 " Fuzzy Seach
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 "-------------------------------------------------------------------------------
-" Conquer of Completion
+" Conquer of Completion (README.md)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" CocInstall coc-tsserver coc-pyright coc-json coc-html coc-css
-
-
 
 "-------------------------------------------------------------------------------
 "GCC Comment line out
 Plug 'tpope/vim-commentary' " Comment out line using gcc
 
 "-------------------------------------------------------------------------------
-
+" Utilities
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'tpope/vim-surround'
-
+Plug 'tpope/vim-surround' " multiple_cursors.vim
 Plug 'jiangmiao/auto-pairs'
 
 "-------------------------------------------------------------------------------
 " Syntax Highlight
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'sheerun/vim-polyglot'
 "-------------------------------------------------------------------------------
 " Python Autopep8 Auto Format
@@ -59,15 +49,15 @@ Plug '1orZero/vim-python-virtualenv'
 "-------------------------------------------------------------------------------
 " HTML/CSS/JAVASCRIPT Live Server
 Plug 'turbio/bracey.vim'  " Use :Bracey to start
-" -------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 call plug#end()
 "-------------------------------------------------------------------------------
-" plugin section end
+" PLUGIN SECTION END
 
 
-" basic config
+" BASIC CONFIG
 "-------------------------------------------------------------------------------
-" key mapping leader key
+" KEY MAPPING
 let g:mapleader = ','
 nnoremap <leader>v :e $myvimrc<cr>
 nnoremap <leader>sv :source $myvimrc<cr>
@@ -76,8 +66,15 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>n :nohl<cr>
 nnoremap <leader>r leader>r :reg<cr>
 
+" KEY MAPPING FOR RESIZE
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+
+
 " COC MAPPING
-noremap <silent> <C-b> :CocCommand explorer<CR>
+noremap <silent> <C-b> :CocCommand explorer .<CR>
 noremap <silent> <Leader>pv :CocCommand explorer --reveal<CR>
 nnoremap <silent> <Leader>b :CocCommand explorer --sources=buffer+,file-<CR>
 nnoremap <silent> <Leader>B :CocList bookmark<CR>
@@ -124,20 +121,13 @@ set clipboard+=unnamed      " use the clipboards of vim and win
 set splitbelow
 set splitright              " Set Split to right by default
 
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
-" colorscheme dracula
-" let g:airline_theme='dracula'
-colorscheme vim-monokai-tasty
-" let g:airline_theme='monokai_tasty'
 let g:airline#extensions#whitespace#enabled = 0
 
 runtime plugin_config.vim
-" runtime defx.vim
+runtime multiple_cursors.vim
 
-
-"------------------------------------------------------------------------------- Mapping Leader Key
+"-------------------------------------------------------------------------------
 " Basic Config
