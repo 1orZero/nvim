@@ -1,3 +1,5 @@
+" plugin_config.vim
+" multiple_cursors.vim
 
 " Required Setting
 "-------------------------------------------------------------------------------
@@ -14,7 +16,10 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+Plug 'joshdick/onedark.vim'
+"-------------------------------------------------------------------------------
+" Fancy Start Screen
+Plug 'mhinz/vim-startify'
 "-------------------------------------------------------------------------------
 " Fuzzy Seach
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -30,10 +35,9 @@ Plug 'tpope/vim-commentary' " Comment out line using gcc
 "-------------------------------------------------------------------------------
 " Utilities
 Plug 'machakann/vim-highlightedyank'
-
-Plug 'terryma/vim-multiple-cursors'
-
-Plug 'tpope/vim-surround' " multiple_cursors.vim
+" multiple_cursors.vim
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 
 "-------------------------------------------------------------------------------
@@ -64,7 +68,10 @@ nnoremap <leader>sv :source $myvimrc<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>n :nohl<cr>
-nnoremap <leader>r leader>r :reg<cr>
+nnoremap <leader>r :reg<cr>
+nnoremap <leader>d :exe "cd %:p:h\|echo 'Change CWD SUCCESSED'" <CR>
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
 
 " KEY MAPPING FOR RESIZE
 nnoremap <Up> :resize +2<CR>
@@ -74,7 +81,7 @@ nnoremap <Right> :vertical resize -2<CR>
 
 
 " COC MAPPING
-noremap <silent> <C-b> :CocCommand explorer .<CR>
+noremap <silent> <C-b> :CocCommand explorer<CR>
 noremap <silent> <Leader>pv :CocCommand explorer --reveal<CR>
 nnoremap <silent> <Leader>b :CocCommand explorer --sources=buffer+,file-<CR>
 nnoremap <silent> <Leader>B :CocList bookmark<CR>
@@ -121,13 +128,14 @@ set clipboard+=unnamed      " use the clipboards of vim and win
 set splitbelow
 set splitright              " Set Split to right by default
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
+colorscheme onedark
+let g:onedark_terminal_italics = 1
+" let g:gruvbox_contrast_dark='hard'
+
 
 let g:airline#extensions#whitespace#enabled = 0
 
 runtime plugin_config.vim
-runtime multiple_cursors.vim
 
 "-------------------------------------------------------------------------------
 " Basic Config
