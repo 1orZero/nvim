@@ -4,9 +4,9 @@
 " Required Setting
 "-------------------------------------------------------------------------------
 " Home
-" let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38-32\python.EXE'
+let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38-32\python.EXE'
 " Office
-let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
+" let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
 "-------------------------------------------------------------------------------
 
 " PLUGIN SECTION START
@@ -17,6 +17,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
+Plug 'altercation/vim-colors-solarized'
 "-------------------------------------------------------------------------------
 " Fancy Start Screen
 Plug 'mhinz/vim-startify'
@@ -91,12 +92,8 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 " Open File Explorer
 nnoremap <leader>x :!start .<cr>
 
-set background=dark
-
-if (has("termguicolors"))
-    set termguicolors
-endif
-
+" Terminal mode
+:tnoremap <Esc> <C-\><C-n>
 
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC " Automatically source vimrc on save.
 
@@ -128,7 +125,14 @@ set clipboard+=unnamed      " use the clipboards of vim and win
 set splitbelow
 set splitright              " Set Split to right by default
 
+set background=dark
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 colorscheme onedark
+" colorscheme gruvbox
 let g:onedark_terminal_italics = 1
 " let g:gruvbox_contrast_dark='hard'
 
@@ -138,4 +142,4 @@ let g:airline#extensions#whitespace#enabled = 0
 runtime plugin_config.vim
 
 "-------------------------------------------------------------------------------
-" Basic Config
+" Basic Config END
