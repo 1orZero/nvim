@@ -73,6 +73,7 @@ nnoremap <leader>r :reg<cr>
 nnoremap <leader>d :exe "cd %:p:h\|echo 'Change CWD SUCCESSED'" <CR>
 nnoremap <leader>p "0p
 nnoremap <leader>P "0P
+nnoremap <leader>nt :tabnew<CR>
 
 " KEY MAPPING FOR RESIZE
 nnoremap <Up> :resize +2<CR>
@@ -94,6 +95,11 @@ nnoremap <leader>x :!start .<cr>
 
 " Terminal mode
 :tnoremap <Esc> <C-\><C-n>
+
+" Custom Command
+command! Ter execute "terminal powershell"
+command! TerPowershell execute "terminal powershell"
+command! Terminal execute "terminal powershell"
 
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC " Automatically source vimrc on save.
 
