@@ -13,6 +13,9 @@ autocmd FileType apache setlocal commentstring=#\ %s
 nnoremap <C-p> :FZF<CR>
 " nnoremap <Leader>f :Rg<CR>
 nnoremap <C-F> :Rg<CR>
+
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+
 " nnoremap <silent> <Leader>b :Buffers<CR>
 " fzf settings
 " This is the default extra key bindings

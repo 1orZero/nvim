@@ -4,9 +4,9 @@
 " Required Setting
 "-------------------------------------------------------------------------------
 " Home
-let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38-32\python.EXE'
+" let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38-32\python.EXE'
 " Office
-" let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
+let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
 "-------------------------------------------------------------------------------
 
 " PLUGIN SECTION START
@@ -134,7 +134,7 @@ set splitright              " Set Split to right by default
 set background=dark
 
 if (has("termguicolors"))
-    set termguicolors
+	set termguicolors
 endif
 
 colorscheme onedark
