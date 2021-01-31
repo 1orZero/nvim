@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/ka/.config/nvim'
 let g:netrw_dirhist_3='D:/ShareFOlder/Work-Derek/2021-01-12 Derek Sync DB app/App_SyncDB'
 let g:netrw_dirhist_2='C:/Users/Laokmm/AppData/Local/nvim'
 let g:netrw_dirhist_1='D:/ShareFOlder/Work-Derek/2020-12-30 Derek CreatePDF/CreatePDF_Project_Archive/APP'

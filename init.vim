@@ -6,7 +6,7 @@
 " Home
 " let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38-32\python.EXE'
 " Office
-let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
+" let g:python3_host_prog = expand('~').'\AppData\Local\Programs\Python\Python38\python.exe'
 "-------------------------------------------------------------------------------
 
 " PLUGIN SECTION START
@@ -127,14 +127,15 @@ set cc=80                   " set an 80 column border for good coding style
 set mouse=a                 " Mouse Enable
 set ruler                   " Show the current position of the cursor
 set cursorline              " Highline the current position of the cursor
-set clipboard+=unnamed      " use the clipboards of vim and win
+set clipboard=unnamedplus " for Arch Linux "
+" set clipboard+=unnamed      " use the clipboards of vim and win
 set splitbelow
 set splitright              " Set Split to right by default
 
 set background=dark
 
 if (has("termguicolors"))
-	set termguicolors
+    set termguicolors
 endif
 
 colorscheme onedark
