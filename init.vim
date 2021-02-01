@@ -64,7 +64,8 @@ call plug#end()
 "-------------------------------------------------------------------------------
 " KEY MAPPING
 let g:mapleader = ','
-nnoremap <leader>v :e $myvimrc<cr>
+" nnoremap <leader>v :e $myvimrc<cr>
+nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>
 nnoremap <leader>sv :source $myvimrc<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
