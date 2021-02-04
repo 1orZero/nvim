@@ -149,5 +149,20 @@ let g:airline#extensions#whitespace#enabled = 0
 
 runtime plugin_config.vim
 
+" TOGGLE THE TRANSPARENT BACKGROUND
+let t:is_transparent = 0
+function! Toggle_transparent_background()
+    if t:is_transparent == 0
+        " hi Normal guibg=#111111 ctermbg=black
+        set background=dark
+        let t:is_transparent = 1
+    else
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 0
+    endif
+endfunction
+
+nnoremap <F4> : call Toggle_transparent_background()<CR>
+
 "-------------------------------------------------------------------------------
 " Basic Config END
