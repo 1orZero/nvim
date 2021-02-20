@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'mhartington/oceanic-next'
 "-------------------------------------------------------------------------------
 " Fancy Start Screen
 Plug 'mhinz/vim-startify'
@@ -87,12 +88,10 @@ nnoremap <Right> :vertical resize -2<CR>
 noremap <silent> <C-b> :CocCommand explorer<CR>
 noremap <silent> <Leader>pv :CocCommand explorer --reveal<CR>
 nnoremap <silent> <Leader>b :CocCommand explorer --sources=buffer+,file-<CR>
-nnoremap <silent> <Leader>B :CocList bookmark<CR>
-nnoremap <Leader>m :CocCommand bookmark.
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
-" Open File Explorer
-nnoremap <leader>x :!start .<cr>
+" Open File Explorer in Windows
+" nnoremap <leader>x :!start .<cr>
 
 " Terminal mode
 :tnoremap <Esc> <C-\><C-n>
@@ -139,30 +138,21 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme onedark
-" colorscheme gruvbox
-let g:onedark_terminal_italics = 1
-" let g:gruvbox_contrast_dark='hard'
 
+
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1"
+" colorscheme onedark
+" colorscheme gruvbox
+" let g:onedark_terminal_italics = 1
+" let g:gruvbox_contrast_dark='hard'
 
 let g:airline#extensions#whitespace#enabled = 0
 
 runtime plugin_config.vim
 
-" TOGGLE THE TRANSPARENT BACKGROUND
-let t:is_transparent = 0
-function! Toggle_transparent_background()
-    if t:is_transparent == 0
-        " hi Normal guibg=#111111 ctermbg=black
-        set background=dark
-        let t:is_transparent = 1
-    else
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 0
-    endif
-endfunction
-
-nnoremap <F4> : call Toggle_transparent_background()<CR>
 
 "-------------------------------------------------------------------------------
 " Basic Config END
